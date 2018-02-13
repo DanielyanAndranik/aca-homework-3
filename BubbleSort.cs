@@ -6,10 +6,26 @@ using System.Threading.Tasks;
 
 namespace SortAlgorithms
 {
+    /// <summary>
+    /// Class for Bubble Sort Algorithm
+    /// </summary>
     static class BubbleSort
     {
+        /// <summary>
+        /// Execution time of Sort function
+        /// </summary>
         private static long time;
+
+        /// <summary>
+        /// Sort function usage memory
+        /// </summary>
         private static int memory = 0;
+
+        /// <summary>
+        /// Sort function, uses the bubble sort algoritm
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <returns>Returns sorted array</returns>
         public static int[] Sort(int[] array)
         {
             time = DateTime.Now.Ticks;
@@ -30,11 +46,19 @@ namespace SortAlgorithms
             return array;
         }
 
+        /// <summary>
+        /// Returns the time 
+        /// </summary>
+        /// <returns></returns>
         public static double GetTime()
         {
             return new TimeSpan(time).TotalMilliseconds;
         }
 
+        /// <summary>
+        /// Returns the memory
+        /// </summary>
+        /// <returns></returns>
         public static int GetMemory()
         {
             return memory;

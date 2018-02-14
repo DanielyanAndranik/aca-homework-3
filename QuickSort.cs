@@ -10,7 +10,7 @@ namespace SortAlgorithms
     /// <summary>
     /// Class for Quick Sort algorithm
     /// </summary>
-    class QuickSort
+    static class QuickSort
     {
         /// <summary>
         /// Execution time of Sort function
@@ -36,6 +36,12 @@ namespace SortAlgorithms
             return array;
         }
 
+        /// <summary>
+        /// Split array into two subarrays 
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
         private static void quickSort(int[] array, int left, int right)
         {
             if (left < right)
@@ -46,6 +52,13 @@ namespace SortAlgorithms
             }
         }
 
+        /// <summary>
+        /// Return index of pivot
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <param name="left">Left index of array</param>
+        /// <param name="right">Right index of array</param>
+        /// <returns></returns>
         private static int partitionIndex(int[] array, int left, int right)
         {
             int pivot = array[right];

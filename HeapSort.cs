@@ -51,6 +51,12 @@ namespace SortAlgorithms
             return array;
         }
 
+        /// <summary>
+        /// Make heap according array
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <param name="n">Size of array</param>
+        /// <param name="i">Current index</param>
         private static void heapify(int[] array, int n, int i)
         {
             int parent = i;

@@ -36,6 +36,12 @@ namespace SortAlgorithms
             return array;
         }
 
+        /// <summary>
+        /// Split array into two subarrays
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <param name="low">Left index of array</param>
+        /// <param name="high">Right index of array</param>
         private static void mergeSort(int[] array, int low, int high)
         {
             if (low < high)
@@ -47,6 +53,13 @@ namespace SortAlgorithms
             }
         }
 
+        /// <summary>
+        /// Merge two sub arrays into single one
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <param name="low">Left index of array</param>
+        /// <param name="middle">Middle index of array</param>
+        /// <param name="high">Right index of array</param>
         private static void merge(int[] array, int low, int middle, int high)
         {
             int i = low;

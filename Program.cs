@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SortAlgorithms
 {
@@ -11,13 +12,19 @@ namespace SortAlgorithms
     {
         static void Main(string[] args)
         {
-
-            int[] randomArray = GenerateRandomArray(UserInputSize());
-            int[] algorithms = UserSelectedAlgorithms();
-            double minTime = SortAndGetMinTime(randomArray, algorithms);
-            PrintResult(algorithms, minTime);          
+            
+             int[] randomArray = GenerateRandomArray(UserInputSize());
+             int[] algorithms = UserSelectedAlgorithms();
+             double minTime = SortAndGetMinTime(randomArray, algorithms);
+             PrintResult(algorithms, minTime);
+            
         }
 
+        /// <summary>
+        /// Prints result of sort algorithms used memory and time
+        /// </summary>
+        /// <param name="algorithms">Array of integers</param>
+        /// <param name="minTime"></param>
         private static void PrintResult(int[] algorithms, double minTime)
         {
             for (int i = 0; i < algorithms.Length; i++)
@@ -78,6 +85,12 @@ namespace SortAlgorithms
             }
         }
 
+        /// <summary>
+        /// Sorts arrays and returns min time
+        /// </summary>
+        /// <param name="randomArray">Array of integers</param>
+        /// <param name="algorithms">Selected algorithms</param>
+        /// <returns></returns>
         private static double SortAndGetMinTime(int[] randomArray, int[] algorithms)
         {
             int[] copyArray = new int[randomArray.Length];
@@ -133,6 +146,10 @@ namespace SortAlgorithms
             return min;
         }
 
+        /// <summary>
+        /// User selects algorithms to sort
+        /// </summary>
+        /// <returns></returns>
         private static int[] UserSelectedAlgorithms()
         {
             Console.WriteLine("Select which algorithm you want to perform:");
@@ -193,6 +210,11 @@ namespace SortAlgorithms
             return numbers;
         }
 
+        /// <summary>
+        /// Generates random array of integers
+        /// </summary>
+        /// <param name="size">Size of array</param>
+        /// <returns></returns>
         private static int[] GenerateRandomArray(int size)
         {
             int[] array = new int[size];
@@ -204,6 +226,10 @@ namespace SortAlgorithms
             return array;
         }
 
+        /// <summary>
+        /// User inputs the size of array that he/she wantss
+        /// </summary>
+        /// <returns></returns>
         private static int UserInputSize()
         {
             string userInput;

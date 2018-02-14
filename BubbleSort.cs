@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SortAlgorithms
 {
@@ -14,7 +15,7 @@ namespace SortAlgorithms
         /// <summary>
         /// Execution time of Sort function
         /// </summary>
-        private static long time;
+        private static double time;
 
         /// <summary>
         /// Sort function usage memory
@@ -28,7 +29,7 @@ namespace SortAlgorithms
         /// <returns>Returns sorted array</returns>
         public static int[] Sort(int[] array)
         {
-            time = DateTime.Now.Ticks;
+            var watch = Stopwatch.StartNew();
             int temp;
             for(int i = 0; i < array.Length; i++)
             {
@@ -42,7 +43,8 @@ namespace SortAlgorithms
                     }
                 }
             }
-            time = DateTime.Now.Ticks - time;
+            watch.Stop();
+            time = watch.ElapsedTicks * (1000000.0 / Stopwatch.Frequency);
             return array;
         }
 
@@ -52,7 +54,7 @@ namespace SortAlgorithms
         /// <returns></returns>
         public static double GetTime()
         {
-            return new TimeSpan(time).TotalMilliseconds;
+            return time;
         }
 
         /// <summary>

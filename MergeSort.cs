@@ -3,19 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SortAlgorithms
 {
+    /// <summary>
+    /// Class for Merge Sort algorithm
+    /// </summary>
     static class MergeSort
     {
-        private static long time;
+        /// <summary>
+        /// Execution time of Sort function
+        /// </summary>
+        private static double time;
+
+        /// <summary>
+        /// Sort function usage memory
+        /// </summary>
         private static int memory = 0;
 
+        /// <summary>
+        /// Sort function, uses the merge sort algoritm
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <returns>Returns sorted array</returns>
         public static int[] Sort(int[] array)
         {
-            time = DateTime.Now.Ticks;
+            var watch = Stopwatch.StartNew();
             mergeSort(array, 0, array.Length - 1);
-            time = DateTime.Now.Ticks - time;
+            watch.Stop();
+            time = watch.ElapsedTicks * (1000000.0 / Stopwatch.Frequency);
             return array;
         }
 
@@ -68,11 +85,19 @@ namespace SortAlgorithms
             Array.Copy(temp, 0, array, low, temp.Length);
         }
 
+        /// <summary>
+        /// Returns the time 
+        /// </summary>
+        /// <returns></returns>
         public static double GetTime()
         {
-            return new TimeSpan(time).TotalMilliseconds;
+            return (double)time;
         }
 
+        /// <summary>
+        /// Returns the memory
+        /// </summary>
+        /// <returns></returns>
         public static int GetMemory()
         {
             return memory;

@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SortAlgorithms
 {
+    /// <summary>
+    /// Class fo instertion Sort algorithm
+    /// </summary>
     static class InsertionSort
     {
-        private static long time;
+        /// <summary>
+        /// Execution time of Sort function
+        /// </summary>
+        private static double time;
+
+        /// <summary>
+        /// Sort function usage memory
+        /// </summary>
         private static int memory = 0;
 
+        /// <summary>
+        /// Sort function, uses the insertion sort algoritm
+        /// </summary>
+        /// <param name="array">Array of integers</param>
+        /// <returns>Returns sorted array</returns>
         public static int[] Sort(int[] array)
         {
-            time = DateTime.Now.Ticks;
+            var watch = Stopwatch.StartNew();
             int temp, j, k;
             for (int i = 1; i < array.Length; i++)
             {
@@ -29,15 +45,24 @@ namespace SortAlgorithms
                 }
             }
 
-            time = DateTime.Now.Ticks - time;
+            watch.Stop();
+            time = watch.ElapsedTicks * (1000000.0 / Stopwatch.Frequency);
             return array;
         }
 
+        /// <summary>
+        /// Returns the time 
+        /// </summary>
+        /// <returns></returns>
         public static double GetTime()
         {
-            return new TimeSpan(time).TotalMilliseconds;
+            return (double)time;
         }
 
+        /// <summary>
+        /// Returns the memory
+        /// </summary>
+        /// <returns></returns>
         public static int GetMemory()
         {
             return memory;
